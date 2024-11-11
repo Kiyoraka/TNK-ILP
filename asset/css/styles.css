@@ -1,0 +1,213 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f7f7;
+}
+
+/* Navigation styles */
+.navbar {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #112d4e;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+}
+
+.nav-item {
+    position: relative;
+    margin-left: 2rem;
+}
+
+.nav-link {
+    color: #3f72af;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #112d4e;
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0.5rem 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    color: #3f72af;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f8f9fa;
+    color: #112d4e;
+}
+
+/* Hero section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                url('path-to-your-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #112d4e;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #3f72af;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #3f72af;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #112d4e;
+}
+
+/* Featured section */
+.featured-section {
+    padding: 4rem 2rem;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f7f7;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: #112d4e;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    color: #3f72af;
+}
+
+/* Footer */
+footer {
+    background-color: #112d4e;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ffffff;
+        padding: 1rem;
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .nav-item {
+        margin: 1rem 0;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        padding-left: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}

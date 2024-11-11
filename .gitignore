@@ -1,0 +1,7 @@
+# Ignore IMS folder and all its contents
+/IMS/
+/IMS/*
+*.IMS/
+
+# Ignore VS Code settings
+.vscode/
