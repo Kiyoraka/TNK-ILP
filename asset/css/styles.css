@@ -50,13 +50,15 @@ main {
     font-size: 1.8rem;
     font-weight: 600;
     color: #112d4e;
+    font-weight: bold;
 }
 
 .nav-brand-sub {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 500;
-    color: #3f72af; /* Lighter color for sub-text */
+    color: #205796; /* Lighter color for sub-text */
     margin-top: 0.2rem;
+    font-weight: bold;
 }
 
 .nav-menu {
