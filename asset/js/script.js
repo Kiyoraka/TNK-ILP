@@ -95,7 +95,7 @@ prevBtn.addEventListener('click', prevSlide);
 nextBtn.addEventListener('click', nextSlide);
 
 // Auto slide
-setInterval(nextSlide, 10000);
+setInterval(nextSlide, 11000); //11 second
 
 // Counter animation
 const counters = document.querySelectorAll('.counter');
