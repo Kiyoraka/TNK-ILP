@@ -1,2 +1,2 @@
-# TNK-IMS
-Information Management System For Tarekat Naqsyabandiah Khalidiah
+# TNK-ILP
+Information Landing Page For Tarekat Naqsyabandiah Khalidiah
