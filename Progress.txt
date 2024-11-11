@@ -1,0 +1,1 @@
+Next should be checking on the navigation bar item on mobile view
