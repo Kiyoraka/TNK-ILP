@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Setup second countdown (Perjumpaan Bulanan)
             const monthlyCountdown = counterBoxes[1];
             monthlyCountdown.innerHTML = `
-                <h2 class="countdown-title">Perjumpaan Bulanan Pada 23 November 2024</h2>
+                <h2 class="countdown-title">Perjumpaan dan Tawajuh Bulanan Pada 23 November 2024</h2>
                 <div class="countdown-days"><span id="monthly-days-remaining">0</span> hari lagi</div>
                 <button class="counter-btn">Sebarkan</button>
             `;

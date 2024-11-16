@@ -169,7 +169,7 @@ main {
 }
 
 .slider-container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     position: relative;
 }
@@ -199,18 +199,106 @@ main {
 /* Counter Box Styles */
 .counter-box {
     background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
     border-radius: 10px;
     text-align: center;
     width: 750px;
     margin: 0 auto;
     box-shadow: 0 4px 15px rgba(63, 114, 175, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Specific styles for first counter box (Suluk) */
+.counter-box-1 {
+    padding: 2.5rem 2rem;
+    min-height: 420px;
+    justify-content: space-between;
+}
+
+.counter-box-1 .countdown-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.counter-box-1 .countdown-days {
+    font-size: 4rem;
+    margin: 1rem 0;
+}
+
+.counter-box-1 .countdown-time {
+    font-size: 2rem;
+    color: #3f72af;
+    margin: 1rem 0;
+}
+
+.counter-box-1 .countdown-date,
+.counter-box-1 .countdown-hijri {
+    font-size: 1.2rem;
+    color: #112d4e;
+    margin: 0.5rem 0;
+}
+
+/* Specific styles for second counter box (Perjumpaan Bulanan) */
+.counter-box-2 {
+    padding: 2.5rem 2rem;
+    min-height: 420px;
+    justify-content: space-around;
+}
+
+.counter-box-2 .countdown-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.counter-box-2 .countdown-days {
+    font-size: 4rem;
+    margin: 2rem 0;
+}
+
+/* Specific styles for third counter box (Sumbangan) */
+.counter-box-3 {
+    padding: 2.5rem 2rem;
+    min-height: 420px;
+    justify-content: space-between;
+}
+
+.counter-box-3 .countdown-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.counter-box-3 .organization-name {
+    font-size: 1.2rem;
+    color: #112d4e;
+    margin: 1.5rem 0;
+}
+
+.counter-box-3 .bank-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #3f72af;
+    font-weight: bold;
+}
+
+.counter-box-3 .bank-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.counter-box-3 .contact-info {
+    font-size: 1.1rem;
+    color: #112d4e;
+    margin: 1.5rem 0;
 }
 
 .countdown-title {
     font-size: 1.5rem;
     color: #112d4e;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-weight: 500;
     text-align: center;
 }
@@ -235,7 +323,7 @@ main {
     margin: 0.5rem 0;
 }
 
-.counter-btn {
+.counter-btn, .hubungi-btn {
     background: #3f72af;
     color: white;
     border: none;
@@ -244,10 +332,12 @@ main {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 1.5rem;
+    margin-top: auto; /* Push button to bottom */
+    align-self: center; /* Center horizontally */
+    width: fit-content;
 }
 
-.counter-btn:hover {
+.counter-btn:hover, .hubungi-btn:hover {
     background: #112d4e;
 }
 
@@ -438,7 +528,52 @@ footer {
 
     .counter-box {
         width: 90%;
-        padding: 1.5rem;
+        min-height: 350px;
+    }
+
+    .counter-box-1,
+    .counter-box-2,
+    .counter-box-3 {
+        padding: 2rem 1.5rem;
+    }
+
+    .counter-box-1 .countdown-title,
+    .counter-box-2 .countdown-title,
+    .counter-box-3 .countdown-title {
+        font-size: 1.2rem;
+    }
+
+    .counter-box-1 .countdown-days,
+    .counter-box-2 .countdown-days {
+        font-size: 3rem;
+    }
+
+    .counter-box-1 .countdown-time {
+        font-size: 1.5rem;
+    }
+
+    .counter-box-1 .countdown-date,
+    .counter-box-1 .countdown-hijri {
+        font-size: 1rem;
+    }
+
+    .counter-box-3 .organization-name {
+        font-size: 1rem;
+    }
+
+    .counter-box-3 .bank-info {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .counter-box-3 .bank-logo {
+        width: 128px;
+        height: 96px;;
+    }
+
+    .counter-box-3 .contact-info {
+        font-size: 0.9rem;
     }
 
     .countdown-title {
@@ -492,6 +627,7 @@ footer {
     }
 
     .bank-logo {
-        height: 30px;
+        width: 64px;
+        height: 48px;
     }
 }
