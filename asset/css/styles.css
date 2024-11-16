@@ -285,8 +285,8 @@ main {
 }
 
 .counter-box-3 .bank-logo {
-    width: 128px;
-    height: 96px;
+    width: 96px;
+    height: 72px;
 }
 
 .counter-box-3 .contact-info {
@@ -334,11 +334,13 @@ main {
     transition: background-color 0.3s ease;
     margin-top: auto; /* Push button to bottom */
     align-self: center; /* Center horizontally */
+    text-decoration: none !important;
     width: fit-content;
 }
 
 .counter-btn:hover, .hubungi-btn:hover {
     background: #112d4e;
+    text-decoration: none !important;
 }
 
 /* Slider Navigation */
@@ -433,8 +435,8 @@ footer {
 }
 
 .bank-logo {
-    height: 128px;
     width: 96px;
+    height: 72px;
 }
 
 .account-number {
@@ -447,6 +449,43 @@ footer {
     font-size: 1.1rem;
     color: #112d4e;
     margin: 1.5rem 0;
+}
+
+.counter-box {
+    padding: 2rem;
+    background: #ffffff;
+    position: relative;
+    isolation: isolate;
+}
+
+/* Add loading state to share button */
+.counter-btn.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.counter-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    border: 2px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 0.6s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 

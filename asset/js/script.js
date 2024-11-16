@@ -1,5 +1,10 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Import html2canvas dynamically
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+    document.head.appendChild(script);
+
     // Navigation Toggle setup
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -75,8 +80,75 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Initialize countdown
-    setupCountdown();
+    // Function to capture and share content
+    const shareContent = async (element) => {
+        try {
+            // Add loading state to button
+            const shareBtn = element.querySelector('.counter-btn');
+            if (shareBtn) {
+                shareBtn.classList.add('loading');
+            }
+
+            // Create canvas from the element
+            const canvas = await html2canvas(element, {
+                backgroundColor: '#ffffff',
+                scale: 2, // Higher quality
+                logging: false,
+                useCORS: true
+            });
+
+            // Convert canvas to blob
+            const blob = await new Promise(resolve => {
+                canvas.toBlob(resolve, 'image/png');
+            });
+
+            // Create file from blob
+            const file = new File([blob], 'suluk-info.png', { type: 'image/png' });
+
+            // Check if Web Share API is supported
+            if (navigator.share) {
+                await navigator.share({
+                    files: [file],
+                    title: 'Suluk Information',
+                    text: 'Suluk information from Tareqat Naqsyabandiah Khalidiah'
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const shareUrl = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = shareUrl;
+                a.download = 'suluk-info.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(shareUrl);
+            }
+        } catch (error) {
+            console.error('Error sharing content:', error);
+            alert('Sorry, there was an error sharing the content. Please try again.');
+        } finally {
+            // Remove loading state from button
+            const shareBtn = element.querySelector('.counter-btn');
+            if (shareBtn) {
+                shareBtn.classList.remove('loading');
+            }
+        }
+    };
+
+    // Add click event listeners to all share buttons
+    const setupShareButtons = () => {
+        const counterBoxes = document.querySelectorAll('.counter-box');
+        
+        counterBoxes.forEach((box, index) => {
+            const shareBtn = box.querySelector('.counter-btn');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    shareContent(box);
+                });
+            }
+        });
+    };
 
     // Slider functionality
     const sliderInit = () => {
@@ -170,6 +242,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Initialize slider
+    // Initialize all functionalities
+    setupCountdown();
     sliderInit();
+    
+    // Initialize share buttons once html2canvas is loaded
+    script.onload = () => {
+        setupShareButtons();
+    };
 });
