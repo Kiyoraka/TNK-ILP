@@ -285,8 +285,8 @@ main {
 }
 
 .counter-box-3 .bank-logo {
-    width: 40px;
-    height: 40px;
+    width: 128px;
+    height: 96px;
 }
 
 .counter-box-3 .contact-info {
@@ -433,8 +433,8 @@ footer {
 }
 
 .bank-logo {
-    height: 40px;
-    width: auto;
+    height: 128px;
+    width: 96px;
 }
 
 .account-number {
@@ -568,8 +568,8 @@ footer {
     }
 
     .counter-box-3 .bank-logo {
-        width: 128px;
-        height: 96px;;
+        width: 64px;
+        height: 48px;;
     }
 
     .counter-box-3 .contact-info {
