@@ -631,7 +631,7 @@ footer {
         font-size: 1rem;
     }
     
-    .counter-btn {
+    .counter-btn, .hubungi-btn {
         padding: 0.6rem 1.5rem;
         font-size: 0.9rem;
     }
