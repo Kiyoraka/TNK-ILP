@@ -9,6 +9,10 @@
     --nav-height: 140px;
 }
 
+.content-wrapper {
+    padding-top: var(--nav-height); /* Match your header height */
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
@@ -20,8 +24,19 @@ body {
 }
 
 main {
-    padding-top: var(--nav-height);
+    padding-top: 0; /* Remove the padding from main */
     flex: 1 0 auto;
+}
+
+/* Update scroll behavior */
+html {
+    scroll-padding-top: var(--nav-height);
+}
+
+/* Ensure proper spacing */
+.featured-section {
+    padding: 4rem 2rem;
+    margin-top: 2rem;
 }
 
 /* Navigation styles */
@@ -166,6 +181,8 @@ main {
     background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
     padding: 2rem;
     margin-top: 0;
+    padding-top: 2rem;
+    scroll-margin-top: var(--nav-height);
 }
 
 .slider-container {

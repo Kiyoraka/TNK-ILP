@@ -28,14 +28,6 @@
                     <ul class="dropdown-menu">
                         <li><a href="#Syarah-Mursyid">Syarah Mursyid Suluk</a></li>
                         <li><a href="#Faq">Pertanyaan Suluk </a></li>
-                        <li><a href="#Sumbangan-Suluk">Sumbangan Suluk </a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link">Sistem <span class="dropdown-arrow">▼</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#SPJ">Sistem Pengurusan Jemaah</a></li>
-                        <li><a href="#SPS">Sistem Pengurusan Suluk</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -46,80 +38,87 @@
     </nav>
 
     <main>
-        <!-- Added padding-top class for spacing -->
-        <section class="slider-section top-spacing" id="home">
-            <!-- Slider Section -->
-            <div class="slider-container">
-                <div class="slider">
-                    <!-- First Slide - Suluk -->
-                    <div class="slide">
-                        <div class="counter-box counter-box-1">
-                            <h2 class="countdown-title">Suluk bulan Disember suluk 20 hari di Pondok Bidayatul Hidayah.</h2>
-                            <div class="countdown-days"><span id="suluk-days-remaining">25</span> hari lagi</div>
-                            <div class="countdown-time">
-                                <span id="hours-remaining">5</span> jam 
-                                <span id="minutes-remaining">14</span> minit 
-                                <span id="seconds-remaining">56</span> saat
+        <div class="content-wrapper">
+            <!-- Slider Section with proper ID and class -->
+            <section id="home" class="slider-section">
+                <div class="slider-container">
+                    <div class="slider">
+                        <!-- First Slide - Suluk -->
+                        <div class="slide">
+                            <div class="counter-box counter-box-1">
+                                <h2 class="countdown-title">Suluk bulan Disember suluk 20 hari di Pondok Bidayatul Hidayah.</h2>
+                                <div class="countdown-container">
+                                    <div class="countdown-days"><span id="suluk-days-remaining">25</span> hari lagi</div>
+                                    <div class="countdown-time">
+                                        <span id="hours-remaining">5</span> jam 
+                                        <span id="minutes-remaining">14</span> minit 
+                                        <span id="seconds-remaining">56</span> saat
+                                    </div>
+                                    <div class="countdown-date">Tarikh: 12 Dec 2024 - 1 Jan 2025</div>
+                                    <div class="countdown-hijri">Tarikh Hijrah: 10 Jamadilakhir 1446H - 1 Rejab 1446H</div>
+                                </div>
+                                <button class="counter-btn">Sebarkan</button>
                             </div>
-                            <div class="countdown-date">Tarikh: 12 Dec 2024 - 1 Jan 2025</div>
-                            <div class="countdown-hijri">Tarikh Hijrah: 10 Jamadilakhir 1446H - 1 Rejab 1446H</div>
-                            <button class="counter-btn">Sebarkan</button>
                         </div>
-                    </div>
 
-                    <!-- Second Slide - Perjumpaan Bulanan -->
-                    <div class="slide">
-                     <div class="counter-box counter-box-2">
-                        <h2 class="countdown-title">Perjumpaan Bulanan Pada 23 November 2024</h2>
-                         <div class="countdown-days"><span id="monthly-days-remaining">7</span> hari lagi</div>
-                         <button class="counter-btn">Sebarkan</button>
-                        </div>
-                    </div>
-
-                    <!-- Third Slide - Sumbangan -->
-                    <div class="slide">
-                        <div class="counter-box counter-box-3">
-                            <h2 class="countdown-title">Sumbangan Di Alu-Alukan</h2>
-                            <div class="organization-name">Pertubuhan Kebajikan Sahabat Bidayatul Hidayah Negeri Perak</div>
-                            <div class="bank-info">
-                                <img src="asset/img/maybank-logo.png" alt="Maybank" class="bank-logo">
-                                <span class="account-number">Maybank 5580 6056 6020</span>
+                        <!-- Second Slide - Perjumpaan Bulanan -->
+                        <div class="slide">
+                            <div class="counter-box counter-box-2">
+                                <h2 class="countdown-title">Perjumpaan Bulanan Pada 23 November 2024</h2>
+                                <div class="countdown-container">
+                                    <div class="countdown-days"><span id="monthly-days-remaining">7</span> hari lagi</div>
+                                </div>
+                                <button class="counter-btn">Sebarkan</button>
                             </div>
-                            <div class="contact-info">Bagi sumbangan berbentuk barangan, sila hubungi Bendahari: Ustaz Azrul</div>
-                            <a href="https://wa.me/+601124275440" target="_blank" class="hubungi-btn">Hubungi</a>
+                        </div>
+
+                        <!-- Third Slide - Sumbangan -->
+                        <div class="slide">
+                            <div class="counter-box counter-box-3">
+                                <h2 class="countdown-title">Sumbangan Di Alu-Alukan</h2>
+                                <div class="countdown-container">
+                                    <div class="organization-name">Pertubuhan Kebajikan Sahabat Bidayatul Hidayah Negeri Perak</div>
+                                    <div class="bank-info">
+                                        <img src="asset/img/maybank-logo.png" alt="Maybank" class="bank-logo">
+                                        <span class="account-number">Maybank 5580 6056 6020</span>
+                                    </div>
+                                    <div class="contact-info">Bagi sumbangan berbentuk barangan, sila hubungi Bendahari: Ustaz Azrul</div>
+                                </div>
+                                <a href="https://wa.me/+601124275440" target="_blank" class="hubungi-btn">Hubungi</a>
+                            </div>
                         </div>
                     </div>
+                    
+                    <div class="slider-nav">
+                        <button class="prev">❮</button>
+                        <div class="slider-dots"></div>
+                        <button class="next">❯</button>
+                    </div>
+                </div>
+            </section>
 
-            </div>
-                <div class="slider-nav">
-                    <button class="prev">❮</button>
-                    <div class="slider-dots"></div>
-                    <button class="next">❯</button>
+            <!-- Featured Section -->
+            <section class="featured-section">
+                <div class="container">
+                    <div class="feature-card">
+                        <div class="feature-icon">🕌</div>
+                        <h3>Spiritual Growth</h3>
+                        <p>Embark on a journey of spiritual enlightenment</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Islamic Education</h3>
+                        <p>Learn from experienced scholars and teachers</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Community</h3>
+                        <p>Join our growing community of seekers</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section class="featured-section">
-            <div class="container">
-                <div class="feature-card">
-                    <div class="feature-icon">🕌</div>
-                    <h3>Spiritual Growth</h3>
-                    <p>Embark on a journey of spiritual enlightenment</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Islamic Education</h3>
-                    <p>Learn from experienced scholars and teachers</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Community</h3>
-                    <p>Join our growing community of seekers</p>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
-
-    
 
     <footer>
         <div class="footer-content">
