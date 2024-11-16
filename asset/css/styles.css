@@ -327,6 +327,38 @@ footer {
     transition: all 0.3s ease;
 }
 
+.organization-name {
+    font-size: 1.2rem;
+    color: #112d4e;
+    margin: 1rem 0;
+    font-weight: 500;
+}
+
+.bank-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.bank-logo {
+    height: 40px;
+    width: auto;
+}
+
+.account-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3f72af;
+}
+
+.contact-info {
+    font-size: 1.1rem;
+    color: #112d4e;
+    margin: 1.5rem 0;
+}
+
 
 
 /* Mobile responsiveness */
@@ -440,5 +472,26 @@ footer {
 
     .nav-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .organization-name {
+        font-size: 1rem;
+    }
+
+    .bank-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .account-number {
+        font-size: 1.5rem;
+    }
+
+    .contact-info {
+        font-size: 0.9rem;
+    }
+
+    .bank-logo {
+        height: 30px;
     }
 }
