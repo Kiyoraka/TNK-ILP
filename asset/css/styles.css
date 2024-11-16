@@ -327,6 +327,8 @@ footer {
     transition: all 0.3s ease;
 }
 
+
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     :root {

@@ -12,66 +12,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Countdown Timer Setup
     const setupCountdown = () => {
-        // Set target date (December 12, 2024)
+        // First countdown (Suluk)
         const sulukStartDate = new Date('2024-12-12T00:00:00');
         const sulukEndDate = new Date('2025-01-01T00:00:00');
-        
+    
+        // Second countdown (Perjumpaan Bulanan)
+        const monthlyMeetingDate = new Date('2024-11-23T00:00:00');
+    
         // Get counter elements
-        const counterBox = document.querySelector('.counter-box');
-        
-        // Create new elements for detailed countdown
-        const countdownContainer = document.createElement('div');
-        countdownContainer.innerHTML = `
-            <h2 class="countdown-title">Suluk bulan Disember suluk 20 hari di Pondok Bidayatul Hidayah.</h2>
-            <div class="countdown-days"><span id="days-remaining">0</span> hari lagi</div>
-            <div class="countdown-time"><span id="hours-remaining">0</span> jam <span id="minutes-remaining">0</span> minit <span id="seconds-remaining">0</span> saat</div>
-            <div class="countdown-date">Tarikh: 12 Dec 2024 - 1 Jan 2025</div>
-            <div class="countdown-hijri">Tarikh Hijrah: 10 Jamadilakhir 1446H - 1 Rejab 1446H</div>
-            <button class="counter-btn">Sebarkan</button>
-        `;
+        const counterBoxes = document.querySelectorAll('.counter-box');
+    
+        if (counterBoxes.length >= 2) {
+            // Setup first countdown (Suluk)
+            const sulukCountdown = counterBoxes[0];
+            sulukCountdown.innerHTML = `
+                <h2 class="countdown-title">Suluk bulan Disember suluk 20 hari di Pondok Bidayatul Hidayah.</h2>
+                <div class="countdown-days"><span id="suluk-days-remaining">0</span> hari lagi</div>
+                <div class="countdown-time"><span id="hours-remaining">0</span> jam <span id="minutes-remaining">0</span> minit <span id="seconds-remaining">0</span> saat</div>
+                <div class="countdown-date">Tarikh: 12 Dec 2024 - 1 Jan 2025</div>
+                <div class="countdown-hijri">Tarikh Hijrah: 10 Jamadilakhir 1446H - 1 Rejab 1446H</div>
+                <button class="counter-btn">Sebarkan</button>
+            `;
 
-        // Replace existing counter content
-        if (counterBox) {
-            counterBox.innerHTML = '';
-            counterBox.appendChild(countdownContainer);
+            // Setup second countdown (Perjumpaan Bulanan)
+            const monthlyCountdown = counterBoxes[1];
+            monthlyCountdown.innerHTML = `
+                <h2 class="countdown-title">Perjumpaan Bulanan Pada 23 November 2024</h2>
+                <div class="countdown-days"><span id="monthly-days-remaining">0</span> hari lagi</div>
+                <button class="counter-btn">Sebarkan</button>
+            `;
+
+            // Update countdown function
+            const updateCountdown = () => {
+                const now = new Date();
+            
+                // Update Suluk countdown
+                const sulukDifference = sulukStartDate - now;
+                if (sulukDifference > 0) {
+                    const days = Math.floor(sulukDifference / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((sulukDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((sulukDifference % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((sulukDifference % (1000 * 60)) / 1000);
+
+                    document.getElementById('suluk-days-remaining').textContent = days;
+                    document.getElementById('hours-remaining').textContent = hours;
+                    document.getElementById('minutes-remaining').textContent = minutes;
+                    document.getElementById('seconds-remaining').textContent = seconds;
+                }
+
+                // Update Monthly Meeting countdown
+                const monthlyDifference = monthlyMeetingDate - now;
+                if (monthlyDifference > 0) {
+                    const days = Math.floor(monthlyDifference / (1000 * 60 * 60 * 24));
+                    document.getElementById('monthly-days-remaining').textContent = days;
+                }
+            };
+
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+            // Initial call
+            updateCountdown();
         }
-
-        // Update countdown function
-        const updateCountdown = () => {
-            const now = new Date();
-            const difference = sulukStartDate - now;
-
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                // Update the countdown display
-                document.getElementById('days-remaining').textContent = days;
-                document.getElementById('hours-remaining').textContent = hours;
-                document.getElementById('minutes-remaining').textContent = minutes;
-                document.getElementById('seconds-remaining').textContent = seconds;
-            } else if (now >= sulukStartDate && now <= sulukEndDate) {
-                countdownContainer.innerHTML = `
-                    <h2 class="countdown-title">Suluk sedang berlangsung!</h2>
-                    <div class="countdown-date">12 Dec 2024 - 1 Jan 2025</div>
-                    <div class="countdown-hijri">10 Jamadilakhir 1446H - 1 Rejab 1446H</div>
-                    <button class="counter-btn">Sebarkan</button>
-                `;
-            } else {
-                countdownContainer.innerHTML = `
-                    <h2 class="countdown-title">Suluk telah selesai</h2>
-                    <div class="countdown-date">Sila tunggu pengumuman tarikh suluk yang akan datang</div>
-                    <button class="counter-btn">Sebarkan</button>
-                `;
-            }
-        };
-
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        // Initial call to avoid delay
-        updateCountdown();
     };
 
     // Initialize countdown
