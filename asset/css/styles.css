@@ -6,7 +6,7 @@
 }
 
 :root {
-    --nav-height: 140px; /* Adjust this value based on your navigation height */
+    --nav-height: 140px;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
 }
 
 main {
-    padding-top: var(--nav-height); /* Add padding equal to navbar height */
+    padding-top: var(--nav-height);
     flex: 1 0 auto;
 }
 
@@ -56,15 +56,13 @@ main {
     font-size: 1.8rem;
     font-weight: 600;
     color: #112d4e;
-    font-weight: bold;
 }
 
 .nav-brand-sub {
     font-size: 1.4rem;
     font-weight: 500;
-    color: #205796; /* Lighter color for sub-text */
+    color: #205796;
     margin-top: 0.2rem;
-    font-weight: bold;
 }
 
 .nav-menu {
@@ -163,20 +161,11 @@ main {
     margin-bottom: 0.5rem;
 }
 
-.feature-card p {
-    color: #3f72af;
-}
-
 /* Slider Section */
 .slider-section {
-    background-color: rgb(235, 250, 253);
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
     padding: 2rem;
-    margin-top: 0; /* Remove the top margin */
-}
-
-.top-spacing {
     margin-top: 0;
-    padding-top: 2rem;
 }
 
 .slider-container {
@@ -188,8 +177,8 @@ main {
 .slider {
     overflow: hidden;
     position: relative;
-    height: 300px;
-    margin-top: 1rem; /* Add some space at the top */
+    height: 500px;
+    margin-top: 0.5rem;
 }
 
 .slide {
@@ -201,55 +190,68 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.5s ease-in-out;
 }
 
 .slide.active {
     opacity: 1;
 }
 
+/* Counter Box Styles */
 .counter-box {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 750px;
-    transition: transform 0.3s ease;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(63, 114, 175, 0.1);
 }
 
-.counter-box:hover {
-    transform: translateY(-5px);
-}
-
-.counter-box h2 {
+.countdown-title {
+    font-size: 1.5rem;
     color: #112d4e;
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
 }
 
-.counter {
-    font-size: 3.5rem;
-    color: #3f72af;
+.countdown-days {
+    font-size: 4rem;
     font-weight: bold;
-    margin: 1.5rem 0;
+    color: #3f72af;
+    margin: 1rem 0;
+    text-shadow: 2px 2px 4px rgba(63, 114, 175, 0.2);
+}
+
+.countdown-time {
+    font-size: 2rem;
+    color: #3f72af;
+    margin-bottom: 1.5rem;
+}
+
+.countdown-date, .countdown-hijri {
+    font-size: 1.25rem;
+    color: #112d4e;
+    margin: 0.5rem 0;
 }
 
 .counter-btn {
     background: #3f72af;
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 2rem;
     border-radius: 25px;
-    cursor: pointer;
     font-size: 1rem;
+    cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 1.5rem;
 }
 
 .counter-btn:hover {
     background: #112d4e;
 }
 
+/* Slider Navigation */
 .slider-nav {
     display: flex;
     justify-content: center;
@@ -299,13 +301,12 @@ footer {
     color: white;
     text-align: center;
     padding: 2rem;
-    margin-top: auto; /* This helps push the footer down */
+    margin-top: auto;
     width: 100%;
 }
 
 /* Mobile Navigation Styles */
 .nav-toggle {
-    /* Hide by default for non-mobile views */
     display: none;
     background: none;
     border: none;
@@ -321,19 +322,15 @@ footer {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #3f72af;
+    background-color: #112d4e;
     margin: 5px 0;
     transition: all 0.3s ease;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     :root {
-        --nav-height: 160px; /* Adjust for mobile */
+        --nav-height: 160px;
     }
 
     .navbar {
@@ -342,7 +339,7 @@ html {
     }
 
     .nav-brand {
-        margin-right: 3rem; /* Make room for toggle button */
+        margin-right: 3rem;
     }
 
     .nav-brand-main {
@@ -386,7 +383,6 @@ html {
         border-bottom: 1px solid #eee;
     }
 
-
     .dropdown-menu {
         position: static;
         box-shadow: none;
@@ -406,29 +402,32 @@ html {
         display: block;
     }
 
-    .top-spacing {
-        margin-top: 80px;
-    }
-
     .counter-box {
-        width: 250px;
+        width: 90%;
+        padding: 1.5rem;
     }
 
-    .counter {
-        font-size: 2.5rem;
+    .countdown-title {
+        font-size: 1.2rem;
     }
 
-
-    .nav-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #112d4e;
-    margin: 5px 0;
-    transition: all 0.3s ease;
+    .countdown-days {
+        font-size: 3rem;
     }
 
-    /* Animation for hamburger menu */
+    .countdown-time {
+        font-size: 1.5rem;
+    }
+
+    .countdown-date, .countdown-hijri {
+        font-size: 1rem;
+    }
+    
+    .counter-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
     .nav-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -441,4 +440,3 @@ html {
         transform: rotate(-45deg) translate(7px, -7px);
     }
 }
-

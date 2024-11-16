@@ -10,6 +10,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Countdown Timer Setup
+    const setupCountdown = () => {
+        // Set target date (December 12, 2024)
+        const sulukStartDate = new Date('2024-12-12T00:00:00');
+        const sulukEndDate = new Date('2025-01-01T00:00:00');
+        
+        // Get counter elements
+        const counterBox = document.querySelector('.counter-box');
+        
+        // Create new elements for detailed countdown
+        const countdownContainer = document.createElement('div');
+        countdownContainer.innerHTML = `
+            <h2 class="countdown-title">Suluk bulan Disember suluk 20 hari di Pondok Bidayatul Hidayah.</h2>
+            <div class="countdown-days"><span id="days-remaining">0</span> hari lagi</div>
+            <div class="countdown-time"><span id="hours-remaining">0</span> jam <span id="minutes-remaining">0</span> minit <span id="seconds-remaining">0</span> saat</div>
+            <div class="countdown-date">Tarikh: 12 Dec 2024 - 1 Jan 2025</div>
+            <div class="countdown-hijri">Tarikh Hijrah: 10 Jamadilakhir 1446H - 1 Rejab 1446H</div>
+            <button class="counter-btn">Sebarkan</button>
+        `;
+
+        // Replace existing counter content
+        if (counterBox) {
+            counterBox.innerHTML = '';
+            counterBox.appendChild(countdownContainer);
+        }
+
+        // Update countdown function
+        const updateCountdown = () => {
+            const now = new Date();
+            const difference = sulukStartDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                // Update the countdown display
+                document.getElementById('days-remaining').textContent = days;
+                document.getElementById('hours-remaining').textContent = hours;
+                document.getElementById('minutes-remaining').textContent = minutes;
+                document.getElementById('seconds-remaining').textContent = seconds;
+            } else if (now >= sulukStartDate && now <= sulukEndDate) {
+                countdownContainer.innerHTML = `
+                    <h2 class="countdown-title">Suluk sedang berlangsung!</h2>
+                    <div class="countdown-date">12 Dec 2024 - 1 Jan 2025</div>
+                    <div class="countdown-hijri">10 Jamadilakhir 1446H - 1 Rejab 1446H</div>
+                    <button class="counter-btn">Sebarkan</button>
+                `;
+            } else {
+                countdownContainer.innerHTML = `
+                    <h2 class="countdown-title">Suluk telah selesai</h2>
+                    <div class="countdown-date">Sila tunggu pengumuman tarikh suluk yang akan datang</div>
+                    <button class="counter-btn">Sebarkan</button>
+                `;
+            }
+        };
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        // Initial call to avoid delay
+        updateCountdown();
+    };
+
+    // Initialize countdown
+    setupCountdown();
+
     // Slider functionality
     const sliderInit = () => {
         const slider = document.querySelector('.slider');
@@ -56,12 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
             slides[currentSlide].classList.add('active');
             dots.children[currentSlide].classList.add('active');
             
-            // Reset counter animation for new slide
-            const counter = slides[currentSlide].querySelector('.counter');
-            if (counter) {
-                startCounter(counter);
-            }
-            
             // Reset animation lock after transition
             setTimeout(() => {
                 isAnimating = false;
@@ -80,31 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const prev = (currentSlide - 1 + slides.length) % slides.length;
                 goToSlide(prev);
             }
-        }
-
-        // Counter animation function
-        function startCounter(counter) {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const duration = 2000; // 2 seconds
-            const increment = target / (duration / 16); // 60 FPS
-            let current = 0;
-
-            function updateCounter() {
-                if (current < target) {
-                    current += increment;
-                    counter.textContent = Math.min(Math.ceil(current), target);
-                    requestAnimationFrame(updateCounter);
-                }
-            }
-
-            counter.textContent = '0';
-            updateCounter();
-        }
-
-        // Start counter for first slide
-        const initialCounter = slides[0].querySelector('.counter');
-        if (initialCounter) {
-            startCounter(initialCounter);
         }
 
         // Event listeners
