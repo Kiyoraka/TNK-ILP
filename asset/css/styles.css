@@ -505,6 +505,370 @@ footer {
     }
 }
 
+/* Syarah Mursyid Styles */
+.syarah-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.syarah-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.content-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.syarah-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.syarah-header h2 {
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.decorative-line {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    margin: 0 auto;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.syarah-header:hover .decorative-line {
+    width: 150px;
+}
+
+.syarah-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.syarah-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.syarah-card.animate-on-scroll {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.syarah-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-number {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-content h3 {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.amalan-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.amalan-type h4 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    padding-left: 1rem;
+    border-left: 3px solid var(--primary-color);
+}
+
+.amalan-list {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.amalan-list li {
+    position: relative;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #4a5568;
+    padding-left: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.amalan-list li:hover {
+    transform: translateX(5px);
+}
+
+.amalan-list li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.amalan-list.secondary li::before {
+    color: var(--secondary-color);
+}
+
+.highlight {
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 0 0.2rem;
+}
+
+.syarah-footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    position: relative;
+}
+
+.syarah-footer .decorative-line {
+    width: 50px;
+    margin-bottom: 1rem;
+}
+
+.footer-note {
+    font-style: italic;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .syarah-section {
+        padding: 4rem 1rem;
+    }
+
+    .syarah-header h2 {
+        font-size: 2rem;
+    }
+
+    .syarah-card {
+        padding: 1.5rem;
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .card-number {
+        margin-bottom: 1rem;
+    }
+
+    .card-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .amalan-group {
+        gap: 1.5rem;
+    }
+
+    .amalan-type h4 {
+        font-size: 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .syarah-section {
+        background: white;
+        padding: 1rem;
+    }
+
+    .syarah-section::before {
+        display: none;
+    }
+
+    .syarah-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* Animation delay for cards */
+.syarah-card:nth-child(1) { animation-delay: 0.1s; }
+.syarah-card:nth-child(2) { animation-delay: 0.3s; }
+.syarah-card:nth-child(3) { animation-delay: 0.5s; }
+.syarah-card:nth-child(4) { animation-delay: 0.7s; }
+
+.faq-section {
+    padding: 4rem 0 8rem 0;  /* Increased bottom padding */
+    background: #f8f9fa;     /* Lighter background */
+    position: relative;
+    min-height: 100vh;       /* Ensures full height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.faq-header h2 {
+    color: #002B4D;          /* Darker blue for better contrast */
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.faq-content {
+    width: 100%;
+    max-width: 900px;        /* Increased max-width */
+    margin: 0 auto;
+    padding: 0 1rem;         /* Added horizontal padding */
+}
+
+.faq-item {
+    background: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.faq-toggle {
+    display: none;
+}
+
+.faq-question {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;    /* Increased padding */
+    cursor: pointer;
+    font-weight: 500;
+    color: #002B4D;          /* Matched heading color */
+    transition: all 0.3s ease;
+}
+
+/* Plus icon styles */
+.faq-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-left: 1rem;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #3f72af;
+    border-radius: 1px;
+}
+
+.faq-icon::before {
+    width: 2px;
+    height: 20px;
+    left: 9px;
+    top: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-icon::after {
+    width: 20px;
+    height: 2px;
+    left: 0;
+    top: 9px;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #ffffff;
+    padding: 0 2rem;         /* Match question padding */
+}
+
+.faq-answer p {
+    margin: 0;
+    padding: 1.5rem 0;      /* Equal padding top and bottom */
+    color: #4a5568;
+    line-height: 1.6;
+    width: 100%;            /* Full width */
+    text-align: left;       /* Left align text */
+}
+
+/* Active states */
+.faq-toggle:checked + .faq-question {
+    background-color: #f8f9fa;
+}
+
+.faq-toggle:checked + .faq-question .faq-icon::before {
+    transform: rotate(90deg);
+}
+
+.faq-toggle:checked + .faq-question + .faq-answer {
+    max-height: 500px;
+}
+
+/* Hover states */
+.faq-question:hover {
+    background-color: #f8f9fa;
+}
+
 
 
 /* Mobile responsiveness */
@@ -685,5 +1049,23 @@ footer {
     .bank-logo {
         width: 64px;
         height: 48px;
+    }
+
+    .faq-section {
+        padding: 2rem 0 4rem 0;
+    }
+
+    .faq-header h2 {
+        font-size: 1.75rem;
+        padding: 0 1rem;
+    }
+
+    .faq-question {
+        padding: 1.25rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .faq-answer {
+        padding: 0 1.5rem;
     }
 }
